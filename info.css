@@ -1,0 +1,267 @@
+.infopage {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 50;
+}
+
+.name-strip {
+    width: 100vw;
+    background: url(imgs/Strip.png);
+    height: 76px;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+
+    .label {
+        color: var(--main-color);
+        font-size: 30px;
+        font-family: 'Bou-Colligate';
+        margin: 12px;
+        margin-left: 250px;
+        z-index: 2;
+    }
+
+    img {
+        margin-top: 10px;
+        margin-left: 265px;
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+
+.frame-scroll .frame {
+    position: absolute;
+    right: 240px;
+    bottom: 50%;
+    /* Center based on bottom */
+    transform: translateY(50%);
+    /* Pull it back up by half its height */
+    width: 440px;
+    height: 483px;
+    background: url(imgs/FrameBIG2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 1s;
+
+    .title {
+        color: white;
+        font-size: 25px;
+        font-family: 'Bou-Colligate';
+        margin-top: 12px;
+        margin-left: 25px;
+    }
+
+    .attribute-list {
+        margin-left: 25px;
+        font-family: 'Popwell';
+        font-size: 25px;
+        color: white;
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 25px;
+
+        .attribute {
+            display: flex;
+
+            .label {
+                font-family: 'Bou-Colligate';
+                color: var(--main-color);
+            }
+
+            img {
+                margin-right: 10px;
+                height: 25px;
+            }
+
+            /* align-items: center; */
+        }
+    }
+
+    .fact-list {
+        margin-left: 25px;
+        font-family: 'Popwell';
+        font-size: 25px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        margin-right: 25px;
+
+        .attribute {
+            display: flex;
+            flex-direction: column;
+            font-size: 25px;
+
+            .label {
+                font-family: 'Bou-Colligate';
+                color: var(--main-color);
+                font-size: 25px;
+            }
+
+            img {
+                margin-right: 10px;
+                height: 25px;
+            }
+
+            /* align-items: center; */
+        }
+    }
+}
+
+.character-frame {
+    background: url(imgs/FrameCharacter.png);
+    width: 464px;
+    height: 569px;
+    position: absolute;
+    left: 226px;
+    bottom: 50%;
+    /* Center based on bottom */
+    transform: translateY(50%);
+    /* Pull it back up by half its height */
+    rotate: -4deg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+
+    img {
+        rotate: 4deg;
+        scale: .7;
+        margin-top: 75px;
+        filter: hue-rotate(-1deg) saturate(1.10) brightness(0.96) contrast(1.1);
+
+    }
+}
+
+.vignette-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    /* Adjust how much of the bottom gets dark */
+    pointer-events: none;
+    /* Doesn’t block clicks */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0) 80%);
+    z-index: 100;
+    /* Above everything */
+}
+
+
+.tape{
+    width: 55px;
+    height: 46px;
+}
+
+.frame-1{
+    width: 55px;
+    height: 46px;
+    position: absolute;
+    opacity: 1;
+    background: url(imgs/tape/pause.png);
+
+}
+
+.frame-2{
+    opacity: 0;
+    width: 55px;
+    height: 46px;
+    /* position: absolute; */
+
+    /* animation: frameAnim1 5s 2.5s linear; */
+}
+
+.playing .frame-1{
+    width: 55px;
+    height: 46px;
+    position: absolute;
+    opacity: 1;
+    animation: frameAnim1 .35s linear 0s infinite forwards;
+}
+
+.playing .frame-2{
+    opacity: .1;
+    width: 55px;
+    height: 46px;
+    /* position: absolute; */
+
+    /* animation: frameAnim1 5s 2.5s linear; */
+    animation: frameAnim2 .35s linear .25s infinite forwards;
+}
+  
+  @keyframes frameAnim1 {
+    0% {
+      background-image: url('imgs/tape/frame1.png');
+    }
+    16.66% {
+      background-image: url('imgs/tape/frame2.png');
+    }
+    33.33% {
+      background-image: url('imgs/tape/frame3.png');
+    }
+    50% {
+      background-image: url('imgs/tape/frame4.png');
+    }
+    66.66% {
+      background-image: url('imgs/tape/frame5.png');
+    }
+    83.33% {
+      background-image: url('imgs/tape/frame6.png');
+    }
+    100% {
+      background-image: url('imgs/tape/frame1.png');
+    }
+  }
+  
+
+  @keyframes frameAnim2 {
+    0% {
+        background-image: url('imgs/tape/frame3.png');
+    }
+    16.66% {
+      background-image: url('imgs/tape/frame4.png');
+    }
+    33.33% {
+      background-image: url('imgs/tape/frame5.png');
+    }
+    50% {
+      background-image: url('imgs/tape/frame6.png');
+    }
+    66.66% {
+      background-image: url('imgs/tape/frame1.png');
+    }
+    83.33% {
+      background-image: url('imgs/tape/frame2.png');
+    }
+    100% {
+      background-image: url('imgs/tape/frame3.png');
+    }
+  }
+  
+
+  .tapes{
+    display: flex;
+    flex-direction: row;
+    pointer-events: fill;
+  }
+
+  .voice-grid{
+    margin-top: 16px;
+    background-image: url(imgs/VoiceGrid.png);
+    width: 398px;
+    height: 111px;
+  }
+
+
+  #canvas {
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .subs{
+    text-align: center;
+  }

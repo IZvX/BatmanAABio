@@ -1,0 +1,296 @@
+:root{
+    --main-color:#FFAC02;
+
+    /* Rotation */
+    --mainframe-rotation:-3.7deg;
+    --bioframe-rotation:-1.7deg;
+
+    --linespeed:150s;
+}
+
+@font-face {
+    font-family: Bou-Colligate;
+    src:url(fonts/Bou_Collegiate.ttf);
+}
+
+@font-face {
+    font-family: Popwell;
+    src:url(fonts/Gycentium\ Popwell.ttf);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
+.container{
+    width: 1152px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-frame{
+    position: relative;
+    background: url(imgs/FrameBIGAngle=-3\,7deg.png);
+    height: 396px;
+    width: 749px;
+    rotate: var(--mainframe-rotation);
+    z-index: 1;
+}
+/* y105x300 */
+
+.title-frame{
+    position: absolute;
+    background: url(imgs/Frame1.png);
+    width: 211px;
+    height: 48px;
+    top: 125px;
+    left: 300px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    z-index: 10;
+}
+
+.title-frame .label{
+    font-family: 'Bou-Colligate';
+    font-size: 20px;
+    text-align: center;
+    margin-left: 16px;
+    color: var(--main-color);
+}
+
+.name-frame{
+    position: absolute;
+    background: url(imgs/Frame2.png);
+    width: 170px;
+    height: 70px;
+    bottom: 140px;
+    left: 432px;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    
+    /* TEXT */
+    color: white;
+    font-family: 'Bou-Colligate';
+    font-size: 20px;
+    
+    /* animation: switch 4s linear; */
+
+
+}
+
+@keyframes switch {
+    0%{
+        /* Example: Apply translate */
+        transform: skew(-10deg, -20deg);
+        translate: -100%;
+
+        /* Example: Apply scale */
+        transform: skew(-10deg, -20deg) scaleX(0.1);
+
+        filter: brightness(00%) grayscale();
+        opacity: 0;
+    }
+
+}
+
+.name-frame img{
+    padding-left: 8px;
+    margin-right: 5px;
+}
+
+
+
+.bio-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 8px;
+    z-index: 20;
+    position: relative;
+    /* gap: 16px; */
+}
+.bio-frame-container {
+    width: 103.06px;
+    height: 103.06px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure it has a positioning context for z-index */
+    z-index: 2; /* Default */
+    /* background-color: red; */
+    rotate: calc((var(--mainframe-rotation) * -1) + var(--bioframe-rotation));
+}
+
+.bio-frame {
+    background-image: url(imgs/FrameBioAngle=1.7deg.png);
+    width: 90px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: absolute;
+    z-index: inherit; /* Inherit from .bio-frame-container */
+    user-select: none;
+    pointer-events: none;
+
+}
+
+.selected-bio{
+    animation: select-bio .2s ease-in-out;
+}
+
+.selected-bio img{
+    filter: sepia(1) saturate(7) hue-rotate(2deg) brightness(100%);
+}
+
+@keyframes select-bio {
+    0%{
+        scale: 1.1;
+        opacity: 0;
+        rotate: 3deg;
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+        rotate: 0deg;
+    }
+}
+
+.bio-frame img{
+    /* filter: sepia(1) saturate(7) hue-rotate(2deg) brightness(100%); */
+}   
+
+.lines{ 
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    /* background-color: red; */
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+/* Horizontal Lines (linex) */
+.linex1, .linex2 {
+    position: absolute;
+    background-image: url('imgs/linex.png');
+    background-repeat: repeat-x;
+    height: 10px; /* Adjust thickness of the line */
+    width: 1000vh; /* Stretch the line across the full screen width */
+}
+
+.linex1 {
+    top: 50%; /* Position the first horizontal line at the vertical center */
+    left: 0;
+    margin-left: calc(103.06px + 90px);;
+    animation: scrollBackground var(--linespeed) linear infinite; /* 10s is the duration of the animation */
+}
+
+.linex2 {
+    top: 60%; /* Position the second horizontal line below the first one */
+    right: 0;
+    margin-right: calc(103.06px + 90px);;
+    animation: scrollBackground2 var(--linespeed) linear infinite; /* 10s is the duration of the animation */
+}
+
+/* Vertical Lines (liney) */
+.liney1, .liney2 {
+    position: absolute;
+    background-image: url('imgs/liney.png');
+    background-repeat: repeat-y;
+    width: 10px; /* Adjust thickness of the line */
+    height: 1000vh; /* Stretch the line down the full screen height */
+}
+
+.liney1 {
+    top: 0;
+    left: 45%; /* Position the first vertical line near the center */
+    margin-top: calc(103.06px + 90px);
+    animation: scrollBackground4 var(--linespeed) linear infinite; /* 10s is the duration of the animation */
+
+
+}
+
+.liney2 {
+    bottom: 0;
+    left: 55%; /* Position the second vertical line near the center */
+    margin-bottom: calc(103.06px + 90px);;
+    animation: scrollBackground3 var(--linespeed) linear infinite; /* 10s is the duration of the animation */
+
+}
+
+@keyframes scrollBackground {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  
+@keyframes scrollBackground2 {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  
+@keyframes scrollBackground {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  
+  @keyframes scrollBackground3 {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+  
+  @keyframes scrollBackground4 {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0% -100%;
+    }
+  }
+  
+.selected{
+    background: url(imgs/selection.png);
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    scale: 1.1;
+}

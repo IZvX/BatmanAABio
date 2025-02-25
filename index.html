@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="bio.css" />
+    <link rel="stylesheet" type="text/css" href="info.css" />
+    <style>
+        #visualizer {
+            width: 100%;
+            height: 200px;
+            /* Adjust as needed */
+            position: relative;
+            overflow: hidden;
+            /* Hide overflowing bars */
+            margin-top: 10px;
+            /* Add some space above the visualizer */
+        }
+
+        #visualizer canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/less" ></script> -->
+
+</head>
+
+<body>
+    <div class="biopage">
+
+        <div class="title-frame">
+            <div class="label">
+                CHARACTER BIOS
+            </div>
+        </div>
+        <div class="name-frame" id="name-frame">
+            <img src="imgs/Arrow.png" alt="">
+            <div class="label" id="name">
+                name
+            </div>
+        </div>
+
+        <div class="next-button"></div>
+        <div class="container">
+            <div class="main-frame">
+                <div class="bio-grid">
+                    <div class="bio-frame-container" name="Batman" info_id="2">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/batman.png" alt="Batman">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Joker" info_id="38">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/joker.png" alt="Joker">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Warden Sharp" info_id="43">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/quincysharp.png" alt="Warden Sharp">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Frank Boles" info_id="15">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/frankboles.png" alt="Frank Boles">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Killer Croc" info_id="6">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/croc.png" alt="Killer Croc">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Harley Quinn" info_id="37">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/harley.png" alt="Harley Quinn">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Penguin" info_id="29">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/penguin.png" alt="Penguin">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Bruce Wayne" info_id="24">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/bruce.png" alt="Bruce Wayne">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Oracle" info_id="18">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/oracle.png" alt="Oracle">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Commissioner Gordon" info_id="27">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/gordon.png" alt="James Gordon">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Dr. Penelope Young" info_id="40">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/young.png" alt="Dr. Penelope Young">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="The Riddler" info_id="9">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/riddler.png" alt="Riddler">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Catwoman" info_id="14">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/catwoman.png" alt="Catwoman">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Bane" info_id="34">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/bane.png" alt="Bane">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Thomas / Martha Wayne" info_id="35">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/waynes.png" alt="Wayne's Family">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Alfred Pennyworth" info_id="12">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/alfred.png" alt="Alfred Pennyworth">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Aaron Cash" info_id="1">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/cash.png" alt="Cash">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Mr. Zsasz" info_id="44">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/zasz.png" alt="Mr. Zsasz">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Poison Ivy" info_id="8">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/ivy.png" alt="Poison Ivy">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="Mr. Freeze" info_id="7">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/freezee.png" alt="Mr. Freeze">
+                        </div>
+                    </div>
+                    <div class="bio-frame-container" name="The Scarecrow" info_id="20">
+                        <div class="bio-frame">
+                            <img src="imgs/bio/scarecrow.png" alt="Scarecrow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lines" id="lines">
+            <div class="linex1"></div>
+            <div class="linex2"></div>
+            <div class="liney1"></div>
+            <div class="liney2"></div>
+        </div>
+
+    </div>
+
+    <div class="infopage" id="infopage" style="display: none;">
+        <div class="vignette-bottom"></div>
+        <div class="name-strip">
+            <div class="label" id="info-name">BATMAN</div>
+            <img src="imgs/pattern.png" alt="">
+        </div>
+        <div class="character-frame">
+            <img src="imgs/bioCharacters/batman.png" alt="" id="info-imgpath">
+        </div>
+        <div class="frame-scroll">
+            <div class="frame">
+                <div class="title">Attributes</div>
+                <div class="attribute-list">
+                    <div class="attribute">
+                        <img src="imgs/Arrow.png" alt="">
+                        A big fat idiot
+                    </div>
+                    <div class="attribute">
+                        <img src="imgs/Arrow.png" alt="">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    </div>
+                    <div class="attribute">
+                        <img src="imgs/Arrow.png" alt="">
+                        A big fat idiot
+                    </div>
+                    <div class="attribute">
+                        <img src="imgs/Arrow.png" alt="">
+                        A big fat idiot
+                    </div>
+
+                </div>
+            </div>
+            <div class="frame">
+                <div class="title">Story</div>
+                <div class="attribute-list">
+                    <div class="attribute" id="info-story"></div>
+                </div>
+            </div>
+            <div class="frame">
+                <div class="title">Facts</div>
+                <div class="fact-list">
+                    <div class="attribute">
+                        <div class="label">REAL NAME</div>
+                        Bruce Wayne
+                    </div>
+                    <div class="attribute">
+                        <div class="label">Occupation</div>
+                        CEO/Philanthropist
+                    </div>
+                    <div class="attribute">
+                        <div class="label">Base of Operations</div>
+                        Gotham City
+                    </div>
+                    <div class="attribute">
+                        <div class="label">Eyes</div>
+                        Blue
+                    </div>
+                    <div class="attribute">
+                        <div class="label">Hair</div>
+                        Black
+                    </div>
+                    <div class="attribute">
+                        <div class="label">Height</div>
+                        6ft 2in
+                    </div>
+                    <div class="attribute">
+                        <div class="label">Weight</div>
+                        210 lb
+                    </div>
+                    <div class="attribute">
+                        <div class="label">First Appearance</div>
+                        Detective Comics #27 (May, 1939)
+                    </div>
+                </div>
+            </div>
+            <div class="frame">
+                <div class="title">Patient Interviews</div>
+                <div class="attribute-list">
+                    <div class="attribute" id="tape-name"></div>
+                    <div class="tapes">
+                        <div class="attribute" id="tape-name">${character.tapes[0].name}</div>
+                        <div class="tapes">
+                            <div class="tape playing" id="tape" tapename="${character.tapes[0].name}"
+                                tapepath="audio/patientInterview/Joker-1.mp3">
+                                <div class="frame-1"></div>
+                                <div class="frame-2"></div>
+                            </div>
+                            <div class="tape" id="tape" tapename="${character.tapes[1].name}"
+                                tapepath="audio/patientInterview/Joker-1.mp3">
+                                <div class="frame-1"></div>
+                                <div class="frame-2"></div>
+                            </div>
+                            <div class="tape" id="tape" tapename="${character.tapes[2].name}"
+                                tapepath="audio/patientInterview/Joker-1.mp3">
+                                <div class="frame-1"></div>
+                                <div class="frame-2"></div>
+                            </div>
+                            <div class="tape" id="tape" tapename="${character.tapes[3].name}"
+                                tapepath="audio/patientInterview/Joker-1.mp3">
+                                <div class="frame-1"></div>
+                                <div class="frame-2"></div>
+                            </div>
+                            <div class="tape" id="tape" tapename="${character.tapes[4].name}"
+                                tapepath="audio/patientInterview/Joker-1.mp3">
+                                <div class="frame-1"></div>
+                                <div class="frame-2"></div>
+                            </div>
+                        </div>
+
+                        <div class="voice-grid">
+                            <canvas id="visualizer"></canvas>
+                            <audio id="audio">
+                            </audio>
+                            <div class="subs" id="subs"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/handleAudio.js"></script>
+    <script src="js/handleSubtitles.js"></script>
+    <script src="js/handleLines.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/animation.js"></script>
+    <script id="characterData" src="data/bioData.js">
+    </script>
+</body>
+
+</html>
